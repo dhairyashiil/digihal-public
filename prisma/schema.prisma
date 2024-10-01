@@ -1,0 +1,105 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Mobile {
+  id            Int     @id  @default(autoincrement())
+  name          String
+  regularPrice  Int
+  salePrice     Int
+  link          String
+  priority      Int    @default(100) 
+  note          String @default("mobile")
+}
+
+model Laptop {
+  id            Int     @id  @default(autoincrement())
+  name          String
+  regularPrice  Int
+  salePrice     Int
+  link          String
+  priority      Int    @default(100) 
+  note          String @default("laptop")
+}
+
+model Smartwatch {
+  id            Int     @id  @default(autoincrement())
+  name          String
+  regularPrice  Int
+  salePrice     Int
+  link          String
+  priority      Int    @default(100) 
+  note          String @default("smartwatch")
+}
+
+model Tablet {
+  id            Int     @id  @default(autoincrement())
+  name          String
+  regularPrice  Int
+  salePrice     Int
+  link          String
+  priority      Int    @default(100) 
+  note          String @default("tablet")
+}
+
+model twsAndHeadphones {
+  id            Int     @id  @default(autoincrement())
+  name          String
+  regularPrice  Int
+  salePrice     Int
+  link          String
+  priority      Int    @default(100) 
+  note          String @default("twsAndHeadphones")
+}
+
+model MobilePriceTier {
+  id            Int     @id  @default(autoincrement())
+  startRange    Int
+  endRange      Int
+  description   String
+}
+
+model LaptopPriceTier {
+  id            Int     @id  @default(autoincrement())
+  startRange    Int
+  endRange      Int
+  description   String
+}
+
+model SmartwatchPriceTier {
+  id            Int     @id  @default(autoincrement())
+  startRange    Int
+  endRange      Int
+  description   String
+}
+
+model TabletPriceTier {
+  id            Int     @id  @default(autoincrement())
+  startRange    Int
+  endRange      Int
+  description   String
+}
+
+model twsAndHeadphonesPriceTier {
+  id            Int     @id  @default(autoincrement())
+  startRange    Int
+  endRange      Int
+  description   String
+}
+
+model LastUpdated {
+  id           Int      @id @default(autoincrement())
+  message      String
+  lastUpdated  DateTime
+}
